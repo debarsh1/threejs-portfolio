@@ -3,19 +3,27 @@ import { SceneManager } from './three/SceneManager.js';
 import { World } from './three/World.js';
 import { Overlay } from './components/Overlay.js';
 
-const container = document.getElementById('canvas-container');
-const sceneManager = new SceneManager(container);
-const overlay = new Overlay();
-const world = new World(sceneManager, overlay);
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.getElementById('canvas-container');
 
-function animate(time) {
-  requestAnimationFrame(animate);
+  if (!container) {
+    console.error('Canvas container not found!');
+    return;
+  }
 
-  // Convert time to seconds
-  const t = time * 0.001;
+  const sceneManager = new SceneManager(container);
+  const overlay = new Overlay();
+  const world = new World(sceneManager, overlay);
 
-  world.update(t);
-  sceneManager.update();
-}
+  function animate(time) {
+    requestAnimationFrame(animate);
 
-animate(0);
+    // Convert time to seconds
+    const t = time * 0.001;
+
+    world.update(t);
+    sceneManager.update();
+  }
+
+  animate(0);
+});
