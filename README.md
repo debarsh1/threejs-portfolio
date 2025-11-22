@@ -27,7 +27,7 @@ An interactive 3D portfolio website built with Three.js featuring animated proje
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/threejs-portfolio.git
+git clone https://github.com/debarsh1/threejs-portfolio.git
 cd threejs-portfolio
 ```
 
